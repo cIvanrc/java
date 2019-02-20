@@ -38,6 +38,7 @@ target/
 
 # NetBeans specific
 **/nbproject/private/
+**/nbproject/
 **/nbproject/Makefile-*.mk
 **/nbproject/Package-*.bash
 .nb-gradle/
