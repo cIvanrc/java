@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : beansJSTL
+    Created on : Feb 23, 2019, 1:49:45 AM
+    Author     : civan
+-->
+    <jsp:root 
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:jsp="http://java.sun.com/JSP/Page"
+        version="2.1">
+
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <!-- any content can be specified here, e.g.: -->
+    <jsp:element name="text">
+        <jsp:attribute name="lang">EN</jsp:attribute>
+        <jsp:body>
+            <h1>Iterandoo una lista de JavaBeans de tipo Rectangualo</h1>
+            
+            <jsp:useBean id="rec1" class="beans.Rectangulo">
+                <c:set target="${rec1}" property="base" value="2" />
+                <c:set target="${rec1}" property="altura" value="4" />
+            </jsp:useBean>
+            
+            <jsp:useBean id="rec2" class="beans.Rectangulo">
+                <c:set target="${rec2}" property="base" value="3" />
+                <c:set target="${rec2}" property="altura" value="6" />
+            </jsp:useBean>
+            
+            <jsp:useBean id="rectangulos" class="beans.ListaRectangulos">
+                <c:set target="${rectangulos}" property="rectangulo" value="${rec1}" />
+                <c:set target="${rectangulos}" property="rectangulo" value="${rec2}" />
+            </jsp:useBean>
+            
+            <ul>
+                <c:forEach varStatus="status" var="rectangulo" items="${rectangulos.lista}">
+                    <li>
+                        Rectangulo ${status.count}.- 
+                        Base: ${rectangulo.base}
+                        Altura: ${rectangulo.altura}
+                    </li>
+                </c:forEach>
+            </ul>
+            <br/>
+            <a href="index.jsp">Regresar</a>
+        </jsp:body>
+    </jsp:element>
+
+</jsp:root>
