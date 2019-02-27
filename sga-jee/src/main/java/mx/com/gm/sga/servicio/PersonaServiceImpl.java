@@ -15,7 +15,7 @@ import mx.com.gm.sga.domain.Persona;
  * @author civan
  */
 @Stateless
-public class PersonaServiceImpl implements PersonaServiceRemote{
+public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService{
 
     @Override
     public List<Persona> listarPersonas() {
